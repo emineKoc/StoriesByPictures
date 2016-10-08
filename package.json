@@ -1,5 +1,5 @@
 {
-  "name": "learn-redux",
+  "name": "StoriesByPictures-redux-react",
   "version": "1.0.0",
   "description": ":) ",
   "scripts": {
@@ -9,10 +9,6 @@
     "clean": "rimraf dist",
     "start": "node devServer.js",
     "tunnel": "browser-sync start --proxy localhost:7770 --tunnel wesbos"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wesbos/Learn-Redux.git"
   },
   "author": "Wes Bos",
   "license": "MIT",
