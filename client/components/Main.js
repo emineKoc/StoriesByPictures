@@ -6,16 +6,12 @@ const Main = React.createClass({
     return (
       <div>
         <h1>
-          <Link to="/">Stories by Pictures</Link>
-          {React.cloneElement(this.props.children, this.props)}
+          <Link to="/">Reduxstagram</Link>
         </h1>
+        {React.cloneElement({...this.props}.children, {...this.props})}
       </div>
     )
   }
 });
 
 export default Main;
-
-
-// if We use
-// this.children.props  ...this.props will not work!

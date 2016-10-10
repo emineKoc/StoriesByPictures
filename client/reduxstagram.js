@@ -6,22 +6,28 @@ import { render } from 'react-dom';
 import css from './styles/style.styl';
 
 // Import Components
-import Main from './components/Main';
+import App from './components/App';
 import Single from './components/Single';
 import PhotoGrid from './components/PhotoGrid';
 
 // import react router deps
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-const router = (
-  <Router history={browserHistory}>
-    <Route path="/" component={Main}>
+// We are importing these 2 lines, and We modify router. We add Provider tag
+import { Provider } from 'react-redux';
+import store, { history } from './store'
 
+
+const router = (
+  <Provider store={store}>
+  <Router history={history}>
+    <Route path="/" component={App}>
       <IndexRoute component={PhotoGrid}></IndexRoute>
       <Route path="/view/:postId" component={Single}> </Route>
-
     </Route>
   </Router>
+  </Provider>
+
 )
 
 render(router, document.getElementById('root'));
@@ -35,3 +41,5 @@ render(router, document.getElementById('root'));
 
 // Instead of using Component state,  We use one giant object -  Redux Stores.
 // $r gives all the providers (props, state and so on)
+// Provider has dispatch, getState, replaceReducers and so on...
+// everytime you dispatch a reducer, every reducers ll run thats why We use switch cases.
